@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+  <link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %}">
+  <title>Sign Up</title>
+  <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/animate-3.7.0.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/font-awesome-4.7.0.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-4.1.3.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/jquery.datetimepicker.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+<style type="text/css">
+  body {
+    background-image: url("{% static 'assets/images/food.jpg' %}");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 150px !important;
+  }
+
+  h2 {
+    color: #0c0c0c;
+    font-family: "Playfair Display", serif;
+    font-size: 42px !important;
+    font-weight: 700;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline-width: thick;
+    border-radius: 5px;
+    width: 66%;
+    border-color: black;
+    height: 35px;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 14px;
+    width: 66%;
+    float: left;
+  }
+  button.btn-primary:hover {
+    background-color:#ff9800;
+    border-color:#ff9800;
+    }
+</style>
+
+
+<body>
+  <header class="header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="logo-area">
+            <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="logo"></a>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="custom-navbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="main-menu">
+            <ul>
+              <li class="active"><a href="/">home</a></li>
+              <li><a href="/about">about</a></li>
+              <li><a href="/menu">menu</a></li>
+              <li><a href="#">blog</a>
+                <ul class="sub-menu">
+                  <li><a href="/blogHome">Blog Home</a></li>
+                  <li><a href="/blogDetails">Blog Details</a></li>
+                </ul>
+              </li>
+              <li><a href="/contactUs">Contact</a></li>
+              <li><a href="/login">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="register-form" style="display:block;width: 50%;float: right;">
+    <h2>Sign up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+        {% endif %}
+        {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+      {% endfor %}
+      </p>
+      {% endfor %}
+      <button type="submit" class="btn-primary">Sign up</button>
+    </form>
+  </div>
+</body>
+</html>

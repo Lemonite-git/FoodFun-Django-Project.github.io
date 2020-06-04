@@ -1,0 +1,11 @@
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    outline-width: thick;
+    border-radius: 5px;
+    width: 66%;
+    border-color: black;
+    height: 35px;
+}
